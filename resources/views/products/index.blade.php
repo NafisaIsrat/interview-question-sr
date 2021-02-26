@@ -8,7 +8,7 @@
 
 
     <div class="card">
-        <form action="" method="get" class="card-header">
+        <form action="filter" method="get" class="card-header">
             <div class="form-row justify-content-between">
                 <div class="col-md-2">
                     <input type="text" name="title" placeholder="Product Title" class="form-control">
@@ -32,7 +32,7 @@
                     <input type="date" name="date" placeholder="Date" class="form-control">
                 </div>
                 <div class="col-md-1">
-                    <button type="submit" class="btn btn-primary float-right"><i class="fa fa-search"></i></button>
+                    <button type="submit" class="btn btn-primary float-right"><i class="fa fa-search"></i>Filter</button>
                 </div>
             </div>
         </form>

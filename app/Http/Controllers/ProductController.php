@@ -51,6 +51,7 @@ class ProductController extends Controller
      */
     public function show($product)
     {
+        return view('products\show', ['product' =>$product]);
 
     }
 
@@ -76,6 +77,10 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $product->update($this->validateProduct());
+
+        return redirect($product->path());
+
     }
 
     /**
@@ -87,5 +92,20 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function filter(Request $request)
+    {
+        $data = Product::where('title', 'like', '%'.$request->input('title').'%')->get();
+        return view('products.show',['products'=>$data]);
+    }
+
+    protected function validateProduct()
+    {
+        return request()->validate([
+            'title' => 'required',
+            'sku' => 'required',
+            'description' => 'required'
+        ]);
     }
 }

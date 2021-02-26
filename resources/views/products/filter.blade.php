@@ -37,16 +37,14 @@
             </div>
         </form>
     </div>
-    <div class="card-body">
-        <h3>Showing Products</h3>
-       <div class="row">
-           <div class="col-sm-6">
-               <img src="{{$product['file_path']}}" alt="">
-           </div>
-           <div class="col-sm-6">
-               <h2>{{$product['title']}}</h2>
-                <h3>{{$product['variant']}}</h3>
-               <h3>{{$product['price']}}</h3>
-           </div>
-       </div>
+    <div>
+        <h4>Results</h4>
+        @foreach($products as $product)
+            <div class="searched-item">
+                <a href="show/{{$product['id']}}">
+                    <h3>{{$product['sku']}}</h3>
+                    <h4>{{$product['description']}}</h4>
+                </a>
+            </div>
+        @endforeach
     </div>
